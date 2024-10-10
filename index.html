@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Location</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById("location").innerText = `Latitude: ${lat}, Longitude: ${lon}`;
+                }, () => {
+                    alert("Unable to retrieve your location.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        window.onload = getLocation;
+    </script>
+</head>
+<body>
+    <h1>Your Location</h1>
+    <p id="location">Fetching your location...</p>
+    <a href="https://example.com" target="_blank">Open Link</a> <!-- Replace with your link -->
+</body>
+</html>
